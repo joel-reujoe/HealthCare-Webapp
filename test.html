@@ -1,0 +1,81 @@
+<html>
+    <head>
+        <title>
+            Test
+        </title>
+    </head>
+<body>
+State: <select id="select_option" oninput=""></select><br>
+City: <select id="select_option2"></select>
+<button id="select">submit</button>
+</body>
+</html>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script src="state_city.js"></script>
+<script>
+    var flag=0;
+    localStorage.setItem("flag",flag);
+    document.getElementById("select_option").addEventListener("oninput",selectEvent);
+    var option=document.createElement("option");
+    option.innerHTML="--";
+    document.getElementById("select_option").appendChild(option);
+    var option2=document.createElement("option");
+    option2.innerHTML="--";
+    document.getElementById("select_option").appendChild(option2);
+    for(var i=1;i<data.length-1;i++)
+    {
+        var option=document.createElement("option");
+        if(data[i].state!=data[i+1].state)
+        {
+            option.innerHTML=data[i].state;
+            document.getElementById("select_option").appendChild(option);
+        }
+    }
+    function selectEvent()
+    {
+        event.preventDefault();
+        if(document.getElementById("select_option").value=="--")
+        {
+            console.log("not selected");
+        }
+           
+        else{
+            if(document.getElementById("select_option2").value=="")
+            {
+            for(var i=0;i<data.length;i++)
+            {
+                if(document.getElementById("select_option").value==data[i].state)
+                {
+                    var option=document.createElement("option");
+                    if(data[i].city!=data[i+1].city)
+                    {
+                        option.innerHTML=data[i].city;
+                        document.getElementById("select_option2").appendChild(option);
+                    }
+                }
+            }
+        }
+        else{
+            var list = document.getElementById("select_option2");
+            console.log(list.length);
+            for(var i=0;i<list.length;i++)
+            {
+                list.removeChild(list.childNodes[i]);
+            }
+            for(var i=0;i<data.length;i++)
+            {
+                if(document.getElementById("select_option").value==data[i].state)
+                {
+                    var option=document.createElement("option");
+                    if(data[i].city!=data[i+1].city)
+                    {
+                        option.innerHTML=data[i].city;
+                        document.getElementById("select_option2").appendChild(option);
+                    }
+                }
+            }
+        }
+            //console.log(document.getElementById("select_option").value);
+        }
+    }
+</script>

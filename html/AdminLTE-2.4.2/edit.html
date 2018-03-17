@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 2 | Dashboard</title>
+  <style>
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+        overflow: hidden;
+        border: 1px solid #ccc;
+        background-color: #f1f1f1;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+        background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+        background-color: #ccc;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+        display: none;
+        padding: 6px 12px;
+        border: 1px solid #ccc;
+        border-top: none;
+    }
+    </style>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="bower_components/morris.js/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="bower_components/jvectormap/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    <!-- Logo -->
+    <!-- <a href="index2.html" class="logo"> -->
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <!-- <span class="logo-mini"><b>A</b>LT</span> -->
+      <!-- logo for regular state and mobile devices -->
+      <!-- <span class="logo-lg"><b>Admin</b>LTE</span>
+    </a> -->
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+          </li>
+          <!-- Notifications: style can be found in dropdown.less -->
+         
+          <!-- Tasks: style can be found in dropdown.less -->
+          <li class="dropdown tasks-menu">
+           
+          </li>
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+             
+              <span class="hidden-xs"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+             
+              <!-- Menu Body -->
+              
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+ 
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+     
+        
+ 
+        <div class="box box-info" >
+            <div class="box-header with-border">
+              <h3 class="box-title">Services</h3>&nbsp;
+              <button class="btn btn-success" onclick="addService()">Add+</button>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal" id="serviceInfo">
+              <div class="box-body" id="company">
+                 
+                    
+                      <div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label ">Service</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control service" id="middle">                  
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Price</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control price" id="middle">                  
+                            </div>
+                          </div>
+              </div>
+              <!-- /.box-body -->
+              
+              <!-- /.box-footer -->
+            </form>
+           
+          </div>
+          <div class="box box-info" >
+              <div class="box-header with-border">
+                <h3 class="box-title">Update Existing Services</h3>&nbsp;
+                
+              </div>
+              <!-- /.box-header -->
+              <!-- form start -->
+              <form class="form-horizontal" >
+                <div class="box-body" id="searchResult">
+                   
+                      
+                        
+                </div>
+                <!-- /.box-body -->
+                
+                <!-- /.box-footer -->
+              </form>
+             
+            </div>
+
+          <!-- academic details -->
+       
+         
+          <div class="box box-info" align="center" >
+            <div class="box-header with-border">
+              <button class="btn btn-success" onclick="AddS()">Save</button>
+            </div>
+          </div>
+    </section>
+    
+    <!-- /.content -->
+  </div>
+  
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+      <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+      <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!-- Home tab content -->
+      <div class="tab-pane" id="control-sidebar-home-tab">
+        <h3 class="control-sidebar-heading">Recent Activity</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-birthday-cake bg-red"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
+
+                <p>Will be 23 on April 24th</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-user bg-yellow"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
+
+                <p>New phone +1(800)555-1234</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
+
+                <p>nora@example.com</p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <i class="menu-icon fa fa-file-code-o bg-green"></i>
+
+              <div class="menu-info">
+                <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
+
+                <p>Execution time 5 seconds</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+        <h3 class="control-sidebar-heading">Tasks Progress</h3>
+        <ul class="control-sidebar-menu">
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Custom Template Design
+                <span class="label label-danger pull-right">70%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Update Resume
+                <span class="label label-success pull-right">95%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-success" style="width: 95%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Laravel Integration
+                <span class="label label-warning pull-right">50%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)">
+              <h4 class="control-sidebar-subheading">
+                Back End Framework
+                <span class="label label-primary pull-right">68%</span>
+              </h4>
+
+              <div class="progress progress-xxs">
+                <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <!-- /.control-sidebar-menu -->
+
+      </div>
+      <!-- /.tab-pane -->
+      <!-- Stats tab content -->
+      <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+      <!-- /.tab-pane -->
+      <!-- Settings tab content -->
+      <div class="tab-pane" id="control-sidebar-settings-tab">
+        <form method="post">
+          <h3 class="control-sidebar-heading">General Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Report panel usage
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Some information about this general settings option
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Allow mail redirect
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Other sets of options are available
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Expose author name in posts
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+
+            <p>
+              Allow the user to show his name in blog posts
+            </p>
+          </div>
+          <!-- /.form-group -->
+
+          <h3 class="control-sidebar-heading">Chat Settings</h3>
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Show me as online
+              <input type="checkbox" class="pull-right" checked>
+            </label>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Turn off notifications
+              <input type="checkbox" class="pull-right">
+            </label>
+          </div>
+          <!-- /.form-group -->
+
+          <div class="form-group">
+            <label class="control-sidebar-subheading">
+              Delete chat history
+              <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
+            </label>
+          </div>
+          <!-- /.form-group -->
+        </form>
+      </div>
+      <!-- /.tab-pane -->
+    </div>
+  </aside>
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<!-- <script src="bower_components/jquery-ui/jquery-ui.min.js"></script> -->
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<!-- <script>
+  $.widget.bridge('uibutton', $.ui.button);
+</script> -->
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- Morris.js charts -->
+<script src="bower_components/raphael/raphael.min.js"></script>
+<!-- <script src="bower_components/morris.js/morris.min.js"></script> -->
+<!-- Sparkline -->
+<script src="bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
+<!-- jvectormap -->
+<script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="bower_components/jquery-knob/dist/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="bower_components/moment/min/moment.min.js"></script>
+<script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+<!-- datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Bootstrap WYSIHTML5 -->
+<script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+<!-- Slimscroll -->
+<script src="bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="bower_components/fastclick/lib/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- <script src="dist/js/pages/dashboard.js"></script> -->
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+
+
+</body>
+</html>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+<script src="http://localhost/healthcare/general.js"></script>
+<script>
+var hid=localStorage.getItem("hid");
+var params1=new URLSearchParams();
+    params1.append('hid',localStorage.getItem('hid'));
+    console.log(params1);
+
+    axios.post(`${globalpath}getServices`,params1).then(function(response){
+      console.log(response)
+      for(var i=0;i<response.data.length;i++)
+      {
+        var div=document.createElement('div');
+              var value= Math.floor((Math.random() * 100) + 1);
+              var randomText="element"+value;
+              div.setAttribute("id", `${randomText}`);
+              div.innerHTML=`<div class="form-group">
+                <div class="box box-info">
+                  <label for='address' class="col-sm-2 control-label">Service</label>
+                        <input type="text" value="${response.data[i].service}" class="form-control existService">
+                  <label for='address' class="col-sm-2 control-label">Price</label>
+                        <input type="text" value="${response.data[i].price}" class="form-control existPrice" >
+                    </div>
+                </div>`
+        document.getElementById("searchResult").appendChild(div);
+      }
+    }).catch(function(error){
+
+    })
+//file upload
+
+//remove company
+function removeService(id)
+{
+var parent = document.getElementById("serviceInfo");
+var child = document.getElementById(id);
+parent.removeChild(child);
+}
+//remove acad
+
+
+function addService()
+{
+  var div=document.createElement('div');
+  var value= Math.floor((Math.random() * 100) + 1);
+  var randomText="element"+value;
+  div.setAttribute("id", `${randomText}`);
+  div.innerHTML=`<div class="form-group">
+                          <label for="inputPassword3" class="col-sm-2 control-label ">Service</label>
+                          <div class="col-sm-10">
+                            <input type="text" class="form-control service" id="middle">                  
+                          </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">Price</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control price" id="middle">                  
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-10">
+                              <button class="btn btn-danger" onclick="removeService('${randomText}')">Remove</button>                 
+                            </div>
+                          </div>`
+  document.getElementById('serviceInfo').appendChild(div);
+}
+
+function AddS()
+{
+console.log("in function");
+//company details  
+var service=document.getElementsByClassName('service');
+var price=document.getElementsByClassName('price');
+var existService=document.getElementsByClassName('existService');
+var existPrice=document.getElementsByClassName('existPrice')
+
+//company array
+var service1=[];
+var price1=[];
+var existService1=[];
+var existPrice1=[];
+
+
+for(var i=0;i<service.length;i++)
+{
+service1[i]=service[i].value;
+price1[i]=price[i].value;
+}
+for(var i=0;i<existService.length;i++)
+{
+existService1[i]=existService[i].value;
+existPrice1[i]=existPrice[i].value;
+}
+
+var params1=new URLSearchParams();
+var params2=new URLSearchParams();
+//for company
+
+params1.append("hid",`${JSON.stringify(hid)}`);
+params1.append('service',`${JSON.stringify(service1)}`);
+params1.append('price',`${JSON.stringify(price1)}`);
+params2.append("hid",`${JSON.stringify(hid)}`);
+params2.append('existService',`${JSON.stringify(existService1)}`);
+params2.append('existPrice',`${JSON.stringify(existPrice1)}`);
+
+
+
+
+
+
+
+
+
+axios.post(`${globalpath}saveService`,params1).then(function(response){
+  console.log(response);
+  
+}).catch(function(err){
+  console.log(err);
+})
+axios.post(`${globalpath}setService`,params2).then(function(response){
+  console.log(response);
+  
+}).catch(function(err){
+  console.log(err);
+})
+      
+			
+
+}
+
+</script>

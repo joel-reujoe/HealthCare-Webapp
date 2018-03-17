@@ -1,0 +1,1 @@
+var globalpath = "http://localhost:8000/"

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Write something in the text field to trigger a function.</p>
+
+<select id="myInput" oninput="myFunction()">
+<option>1</option>
+<option>2</option>
+</select>
+<select id="myInput2">
+</select>
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var x = document.getElementById("myInput").value;
+    document.getElementById("demo").innerHTML = "You wrote: " + x;
+    var option=document.createElement("option");
+    option.innerHTML= document.getElementById("myInput").value;
+    document.getElementById("myInput2").appendChild(option);
+}
+</script>
+
+</body>
+</html>
